@@ -59,9 +59,11 @@
           " "))
 
 (defun motorcycle-modeline ()
+  "Assemble the motorcycle modeline string."
   (setf *motorcycle-tick*
         (mod (+ *motorcycle-tick* 1) 4))
   (motorcycle-string))
+;; (motorcycle-modeline)
 
 (defun motorcycle ()
   "Add a motorcycle to the modeline."
@@ -71,7 +73,7 @@
       (push s global-mode-string))))
 
 (defun motorcycle-park ()
-  "Part the motorcycle."
+  "Park the motorcycle."
   (interactive)
   (let ((s '(:eval (motorcycle-modeline))))
     (when (member s global-mode-string)
